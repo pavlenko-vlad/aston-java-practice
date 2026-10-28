@@ -1,9 +1,9 @@
 package hw1;
 
-public class ImmutableClass {
+public final class ImmutableClass {
     private final MutableClass mutable;
 
-    ImmutableClass(MutableClass mutable) {
+    public ImmutableClass(MutableClass mutable) {
         this.mutable = mutable.copy();
     }
 

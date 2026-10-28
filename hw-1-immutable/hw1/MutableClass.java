@@ -1,6 +1,6 @@
 package hw1;
 
-public class MutableClass {
+public final class MutableClass {
     private int x;
     private int y;
 
@@ -9,7 +9,7 @@ public class MutableClass {
         this.y = y;
     }
 
-     public MutableClass copy() {
+    public MutableClass copy() {
         return new MutableClass(x, y);
     } 
 
