@@ -4,14 +4,11 @@ public final class ImmutableClass {
     private final MutableClass mutable;
 
     public ImmutableClass(MutableClass mutable) {
-        this.mutable = mutable.copy();
+        this.mutable = new MutableClass(mutable);
     }
 
     public MutableClass getMutable() {
-        return mutable.copy();
+        return new MutableClass(mutable);
     }
 
-    public int add() {
-        return mutable.getX() + mutable.getY();
-    }
 }
