@@ -1,29 +1,36 @@
+package hw2;
+
 import java.util.Objects;
 
 public class Book {
-    private final String title;
-    private final int pageCount;
-    private final int year;
+    private String title;
+    private int pageCount;
+    private int year;
 
-    public Book(String title, int pageCount, int year) {
-        this.title     = Objects.requireNonNull(title, "title");
-        this.pageCount = pageCount;
-        this.year      = year;
+    public Book() {
     }
 
-    public String getTitle()     { return title; }
-    public int    getPageCount() { return pageCount; }
-    public int    getYear()      { return year; }
+    public Book(String title, int pageCount, int year) {
+        this.title = title;
+        this.pageCount = pageCount;
+        this.year = year;
+    }
 
-    // для distinct(): сравниваем все три поля
+    public String getTitle() { return title; }
+    public void setTitle(String title) { this.title = title; }
+
+    public int getPageCount() { return pageCount; }
+    public void setPageCount(int pageCount) { this.pageCount = pageCount; }
+
+    public int getYear() { return year; }
+    public void setYear(int year) { this.year = year; }
+
     @Override
     public boolean equals(Object o) {
         if (this == o) return true;
         if (!(o instanceof Book)) return false;
         Book b = (Book) o;
-        return pageCount == b.pageCount
-                && year == b.year
-                && title.equals(b.title);
+        return pageCount == b.pageCount && year == b.year && Objects.equals(title, b.title);
     }
 
     @Override
